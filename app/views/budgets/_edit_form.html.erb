@@ -1,0 +1,45 @@
+
+
+<%= form_for(@budget) do |f| %>
+  <% if @budget.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@budget.errors.count, "error") %> prohibited this budget from being saved:</h2>
+
+      <ul>
+      <% @budget.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+	<div class="field">
+      <br>
+      <%= f.collection_select(:account_id, @accounts, :id, :name) %>
+      <%= f.label :account_id %>
+
+      <br>
+      <%= f.collection_select(:wunit, @wunits,:name,:name) %>
+      <%= f.label :wunit %>
+
+      <br>
+      <%= f.date_select :budget_date %>
+      <%= f.label :budget_date %>
+
+      <br>
+      <%= f.text_field :ammount %>
+      <%= f.label :ammount %>
+
+      <br>
+      <%= f.text_field :text %>
+      <%= f.label :text %>
+
+      <br>
+	</div>
+
+	<div class="budgets">
+		<%= f.submit "Save", class: "btn btn-sm btn-success" %>
+	</div>
+<% end %>
+<br/>
+<p class="text-danger">*Editing a single record may lead to unbalanced bungeted tansactions!</p>

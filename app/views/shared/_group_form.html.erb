@@ -1,0 +1,15 @@
+<h4>Create New Wealth Group:</h4>
+
+
+<%= form_for(@group, url: group_path) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_area :name, placeholder: "Wealth Group Name" %>
+<br>
+
+    <%= f.collection_select(:fx_id, Fx.all, :id, :fx ) %>
+    <%= f.label :fx_id, "Choose currency" %>
+<br>
+  </div>
+  <%= f.submit "Save", class: "btn btn-sm btn-success" %>
+<% end %>

@@ -1,0 +1,24 @@
+<li>
+  <% if Time.now > micropost.post_date %>
+
+   <span class="topic">
+    <strong>Topic:</strong> <%= micropost.topic %>
+  </span>
+  <strong><span class="content"><%= micropost.content %></span></strong>
+  <p>Expectations about...<%= micropost.post_date %>
+
+  <% if current_user?(micropost.user) %>
+    <%= link_to "delete", micropost, method: :delete,
+                                     data: { confirm: "Are you sure?" },
+                                     title: micropost.content %>
+  <% end %>
+  </p>
+
+    <% else %>
+    <div id="feed" style="background-color: #e8e8e8    ;">
+    <p><strong><%= @user.name %></strong> posted something about <strong><%= micropost.topic %></strong>. 
+    	You can see it on </strong><%= micropost.post_date()%></strong></p>
+    </div>
+   <% end %>
+
+</li>

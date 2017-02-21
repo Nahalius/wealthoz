@@ -1,0 +1,20 @@
+%section
+  %ul.nav.nav-tabs{style: "margin-bottom: 15px"}
+    %li
+      %h5
+        = current_user.group.name
+    %li.active
+      = link_to 'Future Balance', future_balance_future_reports_path, remote: true, data: { target: '#future_balance', toggle: 'tab'}
+    %li
+      = link_to 'Actual vs Budget', actual_budget_future_reports_path, remote: true, data: { target: '#actual_budget', toggle: 'tab'}
+    -# %li
+    -#   = link_to 'P&L Wealth Unit', report_plwu_ledgers_path, remote: true, data: { target: '#plwu', toggle: 'tab'}
+    -# %li
+    -#   = link_to "KPI's", report_kpi_ledgers_path, remote: true, data: { target: '#kpi', toggle: 'tab'}
+
+#myTabContent.tab-content
+  #future_balance.tab-pane.fade.active.in
+    = render 'future_reports/future_balance'
+  #actual_budget.tab-pane.fade
+  -# #plwu.tab-pane.fade
+  -# #kpi.tab-pane.fade

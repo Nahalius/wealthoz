@@ -1,0 +1,47 @@
+<div class="well">
+<a class="btn btn btn-success assets" href="#" rel="tooltip" data-placement="bottom"
+title="Increase(+) Decrease(-)">Assets<span class="badge" >0</span></a>
+<a class="btn btn btn-warning debt" href="#" rel="tooltip" data-placement="bottom"
+title="Increase(-) Decrease(+)">-Debt<span class="badge">0</span></a>
+<a href="#">=</a>
+<a class="btn btn btn-success income" href="#" rel="tooltip" data-placement="bottom"
+title="Increase(+) Decrease(-)">Income<span class="badge">0</span></a>
+<a class="btn btn btn-warning expenses" href="#" rel="tooltip" data-placement="bottom"
+title="Increase(-) Decrease(+)">-Expenses<span class="badge">0</span></a>
+<a href="#">=</a>
+<a class="btn btn btn-primary" href="#" rel="tooltip" data-placement="bottom"
+title="Increase(+) Decrease(-)"><strong>Wealth</strong><span class="wealth badge">0</span></a>
+%a.hide.accumulated_wealth
+  %span.badge
+</div>
+
+= form_tag(budgets_path, id: 'new-budget-form' ) do
+  %table{:class => "table table-striped table-hover "}
+    %tr{:class => "active"}
+      %th *Account
+      %th= render 'shared/help_wunits'
+      %th *Date y-m-d
+      %th *Amount
+      %th Text
+      %th Action
+
+    %tr.new-budget-row{:class => "active"}
+      = render 'budget_fields'
+
+    %tr.actions
+      %td= submit_tag 'POST',class: "btn btn-success btn-sm", id: 'new-budget-form-submit'
+      %td= link_to 'Add Row'+ 8659.chr(Encoding::UTF_8), '#', id: '_form',class: "btn btn-success btn-sm"
+      %td= render 'shared/transaction_help'
+      %td{colspan: 3} Unbalanced Amount<span class="unbalanced-amount badge">0</span>
+
+
+
+    %tr.new_budget_row.hidden{:class => "active"}
+      = render 'budget_fields'
+
+<div class="well" >
+%p{:class => "text-danger"} *Required fields
+%p{:class => "text-success"} In order to POST a transaction all required fields must be Green and the Unbalanced Amount must be Zero
+%p{:class => "text-danger"} Under column Amounts enter <strong>negative values/minus/</strong> when: decreasing assets, increasing debt or adding expenses
+%p{:class => "text-info"} Under column Amounts enter <strong>positive values/plus/</strong> when: increasing assets, decreasing debt or adding income
+</div>

@@ -1,0 +1,18 @@
+
+%td
+  .form-group
+    = select_tag "ledgers[][account_id]", grouped_options_for_select(@accounts), class: 'ledger-account-select form-control required-field' , prompt: 'Select Acc.'
+%td
+  .form-group
+    = select_tag "ledgers[][wunit]", grouped_options_for_select(@wunit), class: 'ledger-wunit-select  form-control required-field', prompt: 'Select W.Unit'
+%td
+  .form-group
+    = date_field_tag"ledgers[][post_date]", Date.today, class: ' ledger-date-input form-control required-field'
+
+%td
+  .form-group
+    = text_field_tag "ledgers[][ammount]",nil, class: 'ledger-ammount-input form-control required-field'
+%td
+  .form-group
+    = text_field_tag "ledgers[][text]"
+%td= link_to 'Delete', '#', class: 'delete-link btn btn-warning btn-xs'

@@ -1,0 +1,7 @@
+$('#actual_budget').html("<%=j render('future_reports/actual_budget') %>")
+$('#end_date, #start_date').datepicker({
+  weekStart: 1,
+  autoclose: true,
+  format:'yyyy-mm-dd' ,
+  todayHighlight: true
+})

@@ -1,0 +1,37 @@
+%h4 Profit & Loss Monthly
+%div.row
+  %div.col-md-6
+    %p="All amounts in "+ @fx
+  %div.col-md-6
+    %div.pull-right
+      = form_tag report_plm_transparents_path, remote: true, method: :get do
+        = select_year(default_or_select_year, start_year: (Time.now - 10.year).year, end_year: (Time.now + 5.year).year)
+        = submit_tag 'submit', class: 'btn btn-primary btn-sm'
+%table{:class => "table table-striped table-hover ", :id => "pl_m_table" }
+  %thead
+    %th.success Accounts\Months
+    - @ledgers_hash_pl_m.each do |m, ledegers|
+      %td.success
+        %strong= m.month
+    %th.success Total
+  %tbody
+    - @accounts_pl.each do |account|
+      %tr
+        %td
+          = account.name
+        - @ledgers_hash_pl_m.each do |k, v|
+          %td
+            - if v[account.id]
+              =number_with_precision(  v[account.id].map(&:ammount).inject(0, &:+),precision: 2, separator: '.', delimiter: ',')
+        %td
+          - if @account_hash_pl[account.id]
+            =number_with_precision( @account_hash_pl[account.id].map(&:ammount).inject(0, &:+),precision: 2, separator: '.', delimiter: ',')
+    %tr.info
+      %td
+        %strong Wealth for the period
+      - @ledgers_hash_pl_m.each do |k, v|
+        %td
+          %strong=number_with_precision(v.values.flatten.map(&:ammount).inject(0, &:+),precision: 2, separator: '.', delimiter: ',')
+      %td
+        %strong=number_with_precision(@account_hash_pl.values.flatten.map(&:ammount).inject(0, &:+),precision: 2, separator: '.', delimiter: ',')
+=render 'chart_pl_m'

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Account Name</Data></Cell>
+        <Cell><Data ss:Type="Number">User</Data></Cell>
+        <Cell><Data ss:Type="Number">Report</Data></Cell>
+        
+      </Row>
+    <% @accounts.each do |account| %>
+      <Row>
+        
+        <Cell><Data ss:Type="String"><%= account.name %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= account.user_id %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= account.fs_id %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

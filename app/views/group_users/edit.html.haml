@@ -1,0 +1,15 @@
+%h3 Change Your Wealth Group
+<br>
+= form_for(@group_user, url: group_user_path) do |f|
+
+  = f.collection_select(:group_id, Group.all, :id, :name )
+  = f.label :group_id, "Choose Wealth Group"
+  <br>
+  = f.submit 'Request Permision', class: 'btn btn-warning btn-sm'
+  <br>
+
+  
+%p.text-danger *You can participate in only one Wealth Group.
+%p.text-danger*Members of a Wealth Group can be very close family members or a trusted accountant.
+%p.text-danger *After your Request a Permision to join an existing Wealth Group your permision must be approved
+%p.text-danger by an athorizer member of this Group.

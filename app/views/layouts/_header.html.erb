@@ -1,0 +1,85 @@
+<div class="navbar navbar-fixed-top navbar-default">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <%= link_to "Wealth", root_path, id: "logo",:class=> "text-success"%><p id= "logo" class="text-warning">OZ</p>
+          <p id= "move2"class="text-warning"> &beta;</p>
+          <div class="container-fluid nav-collapse">
+
+            <ul class="nav">
+                <li><%= link_to '<span class="glyphicon glyphicon-cloud"></span> FuturePost'.html_safe, root_path %></li>
+
+                <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="icon "></i> Learn <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+          		    <li><%= link_to "Why",    why_path %></li>
+         		      <li><%= link_to "How",    how_path %></li>
+                  <li><%= link_to "Got Wealth !?",    book_path %></li>
+              </ul>
+              </li>
+
+      <% if signed_in? %>
+
+              <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="icon "></i> Set <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to '<span class="glyphicon glyphicon-user "></span> Profile'.html_safe, current_user %></li>
+                <li><%= link_to '<span class="glyphicon glyphicon-cog "></span> User Settings'.html_safe, edit_user_path(current_user) %></li>
+                <li><%= link_to '<span class="glyphicon glyphicon-leaf "></span> Projects '.html_safe,  new_project_path  %></li>
+                <li><%= link_to '<span class="glyphicon glyphicon-wrench "></span> Accounts'.html_safe,  accounts_path %></li>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to '<span class="glyphicon glyphicon-off "></span> Sign out'.html_safe, signout_path, method: "delete" %>
+                </li>
+              </ul>
+          <% if current_user.group.name != "Pool" %>
+           	 <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="icon "></i> Post <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+
+                <li><%= link_to '<span class="glyphicon glyphicon-pencil "></span> Initial Wealth'.html_safe, new_cut_off_wealth_path %></li>
+                <li><%= link_to '<span class="glyphicon glyphicon-pencil "></span> Transaction'.html_safe, new_ledger_path %></li>
+                <li><%= link_to '<span class="glyphicon glyphicon-pencil "></span> Budget'.html_safe, new_budget_path %></li>
+              </ul>
+
+			<li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="icon"></i> Report <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to '<span class="glyphicon glyphicon-hand-left "></span> Past Reports'.html_safe, report_path %></li>
+                <li><%= link_to '<span class="glyphicon glyphicon-hand-right "></span> Future Reports'.html_safe, future_reports_path %></li>
+                <li><%= link_to '<span class="glyphicon glyphicon-list-alt "></span> Budgets'.html_safe, budgets_path %></li>
+                <li><%= link_to '<span class="glyphicon glyphicon-list-alt "></span> Transactions'.html_safe, ledgers_path %></li>
+              </ul>
+
+ 			<li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+               <i class="icon "></i>  Together <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+              	<li><%= link_to '<span class="glyphicon glyphicon-globe"></span> Members'.html_safe, users_path %></li>
+              	<li><%= link_to '<span class="glyphicon glyphicon-flag "></span> WealthOZ'.html_safe, transparent_path %></li>
+                <li><%= link_to '<span class="glyphicon glyphicon-gift "></span> Support Us'.html_safe, donate_path %></li>
+              </ul>
+      <% else %>
+            <li><%= link_to "Create Wealth Group", new_group_path , class: "btn  btn-sm btn-warning" %></li>
+
+  		<%end%>
+            </li>
+      <% else %>
+            <li><%= link_to '<span class="icon-signin "></span> Sign in'.html_safe, signin_path %></li>
+      <% end %>
+
+
+            </ul>
+         </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+</div>

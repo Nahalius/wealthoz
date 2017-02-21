@@ -1,0 +1,29 @@
+= form_tag(cut_off_wealths_path, remote: true, id: 'new-cut-off-wealth-form' ) do
+  %table{:class => "table table-striped table-hover "}
+    %tr{:class => "active"}
+      %th *Account
+      %th= render 'shared/help_wunits'
+      %th *Date y-m-d
+      %th *Amount
+      %th Text
+      %th Action
+
+    %tr.new-ledger-row{:class => "active"}
+      = render 'ledger_fields'
+
+    %tr.actions
+      %td= submit_tag 'POST',class: "btn btn-success btn-sm", id: 'new-cut-off-wealth-form-submit', disabled: true
+      %td= link_to 'Add Row'+ 8659.chr(Encoding::UTF_8), '#', id: '_form',class: "btn btn-success btn-sm"
+      %td= render 'shared/transaction_help'
+      %td
+      %td
+      %td
+
+    %tr.new_budget_row.hidden{:class => "active"}
+      = render 'ledger_fields'
+
+<div class="well" >
+%p{:class =>"text-danger"}*Before entering any trasactions add all your intitial Assets and Debt.
+%p{:class =>"text-danger"}*This is your starting point. Enter all your Group Assests and Debt that you already own.
+%p{:class =>"text-danger"}*Please enter all Debt records with [-] (minus in front).
+</div>

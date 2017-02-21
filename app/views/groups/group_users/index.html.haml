@@ -1,0 +1,22 @@
+%h3="Requests for joining " + current_user.group.name + " Wealth Group"
+%h6 Approve only those people who you realy know and
+%h6 whit whom you measure your mutual Wealth. 
+
+%table.table.table-bordered.table-condensed
+  %thead
+    %tr
+      %th Name
+      %th Email
+      %th Status
+      %th Action
+  %tbody
+    - @pending_group_users.each do |group_user|
+      %tr{id: "group-user-#{group_user.id}" }
+        %td
+          = group_user.user.name
+        %td
+          = group_user.user.email
+        %td
+          = group_user.status
+        %td
+          = link_to 'Approve', approved_group_group_user_path(group_user), class: 'btn btn-success', remote: true

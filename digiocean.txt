@@ -1,0 +1,14 @@
+IP Address: 107.170.23.67
+Username: root
+Password: cacwrkfeavfm
+
+RAILS_ENV=production rake assets:precompile
+
+RAILS_ENV=production rake db:migrate
+
+service unicorn restart
+
+
+
+
+ 

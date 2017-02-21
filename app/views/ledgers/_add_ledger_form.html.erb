@@ -1,0 +1,34 @@
+
+  <%= form_tag(url: create_ledger_path, remote: true) do %>
+  <table>
+    <tr>
+      <td><%= text_field_tag 'ledger[][account_id]'%></td>
+      <td><%= text_field_tag 'ledger[][wunit_id]]'%></td>
+
+    <tr></tr>
+      <td>
+      	<div class="actions">
+      		<%= submit_tag 'Save'%>
+      	</div>
+      		
+      </td>
+      <td>
+      	<div class="actions">
+      		<%= button_tag 'Add new transaction form', id: 'add_ledger_form' %>
+      	<>
+      </td>
+      <% end %>
+
+    <tr><%new_ledger_row.hidden %></tr>
+      <td><%= text_field_tag 'ledger[][account_id]'%></td>
+      <td><%= text_field_tag 'ledger[][wunit_id]]'%></td>
+
+      </tr>
+     </table> 
+<script type="text/javascript">
+  $('#add_ledger_form').bind('click', function(e) {
+    var row = $('tr.new_ledger_row').clone().removeClass('hidden new_ledger_row');
+    $('tr.actions').before(row); # will append the <tr> before the actions
+ ipt>
+ 
+</script>

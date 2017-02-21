@@ -1,0 +1,23 @@
+<h4 align="center" class="text-success" >WealthOZ  Financials </h4>
+<h5 align="center" class="text-success">Mutual Transparency</h5>
+
+%section
+
+  %ul.nav.nav-tabs{style: "margin-bottom: 15px"}
+    %li.active
+      = link_to 'Balance WU', report_balance_transparents_path, remote: true, data: { target: '#balance', toggle: 'tab'}
+    %li
+      = link_to 'P&L Monthly', report_plm_transparents_path, remote: true, data: { target: '#plm', toggle: 'tab'}
+    %li
+      = link_to 'P&L Wealth Unit', report_plwu_transparents_path, remote: true, data: { target: '#plwu', toggle: 'tab'}
+    %li
+      = link_to "KPI's", report_kpi_transparents_path, remote: true, data: { target: '#kpi', toggle: 'tab'}
+    %li
+      = link_to "The Story", report_story_transparents_path, remote: true, data: { target: '#kpi', toggle: 'tab'}
+
+#myTabContent.tab-content
+  #balance.tab-pane.fade.active.in
+    = render 'transparents/report_balance'
+  #plm.tab-pane.fade
+  #plwu.tab-pane.fade
+  #kpi.tab-pane.fade

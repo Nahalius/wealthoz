@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  account_id: 1
+  wunit_id: 1
+  post_date: 2014-05-03
+  ammount: 9.99
+  text: MyString
+  quantity: 9.99
+
+two:
+  account_id: 1
+  wunit_id: 1
+  post_date: 2014-05-03
+  ammount: 9.99
+  text: MyString
+  quantity: 9.99

@@ -1,0 +1,27 @@
+<% provide(:title, 'Group Settings') %>
+
+<h3>Manage Your Group Settings</h3>
+
+
+  <div class="btn-group-vertical">
+    <aside class="span8">
+    <section>
+        <%= render 'shared/user_info' %>
+    </section>
+    <section>
+    	<%= link_to "Create New Wealth Group", new_group_path , class: "btn btn-success" %>
+    	<br>
+    	<br>
+    	<%= link_to "Link to an existing Wealth Group",edit_user_path(current_user) , class: "btn btn-success" %>
+    	<br>
+    	<br>	
+    	<%= link_to "Manage Projects",new_project_path(current_user) , class: "btn btn-success" %>
+    	<br>
+    	<br>	
+		<%= link_to "Manage Accounts",accounts_path , class: "btn btn-success" %>
+    </section>
+
+      
+    </aside>
+  </div>
+

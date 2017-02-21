@@ -1,0 +1,28 @@
+%h4=current_user.group.name+"'s Budgeted Transactions"
+
+%table{:class => "table table-striped table-hover ",:id => "budgets"}
+  %thead
+    %tr
+      %th Account
+      %th= render 'shared/help_wunits'
+      %th Budget date
+      %th Amount
+      %th Text
+      %th
+      %th
+
+  - @budgets.each do |budget|
+    %tbody
+      %tr.active
+        %td= budget.account.name
+        %td= budget.wunit
+        %td= budget.budget_date
+        %td= budget.ammount
+        %td= budget.text
+        %td= link_to 'Edit', edit_budget_path(budget),class: 'btn btn-warning btn-xs'
+        %td= link_to 'Delete', budget, :method => :delete, :data => { :confirm => 'Are you sure?' },class: 'btn btn-warning btn-xs'
+
+%br
+
+= link_to 'New Budget', new_budget_path, class: "btn btn-success btn-sm"
+%br

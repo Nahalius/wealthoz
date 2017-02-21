@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Account:
+  = @budget.account_id
+%p
+  %b Group:
+  = @budget.group_id
+%p
+  %b Budget date:
+  = @budget.budget_date
+%p
+  %b Ammount:
+  = @budget.ammount
+%p
+  %b Text:
+  = @budget.text
+%p
+  %b Wunit:
+  = @budget.wunit
+
+= link_to 'Edit', edit_budget_path(@budget)
+\|
+= link_to 'Back', budgets_path

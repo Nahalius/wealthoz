@@ -1,0 +1,80 @@
+<footer class="footer">
+  <small>
+    <p>Copyright © 2013 WealthOZ.com</p>
+    <p>All Rights Reserved. </p>
+
+  </small>
+  <div id="social">
+  <nav>
+    <ul>
+    <%= link_to image_tag("social/b.png", alt: "got wealth"), book_path %>
+		<%= link_to image_tag("social/f.png", alt: "facebook"), 'https://www.facebook.com/WealthOZ' %>
+		<%= link_to image_tag("social/t.png", alt: "twitter"), 'https://twitter.com/wealthoz/' %>
+		<%= link_to image_tag("social/g.png", alt: "google+"), 'https://plus.google.com/+Wealthoz/about' %>
+		<%= link_to image_tag("social/p.png", alt: "pinterest"), 'http://pinterest.com/nahalius/boards/' %>
+
+    </ul>
+  </nav>
+  </div>
+  <ul class="nav nav-list" >
+    <h2>"10 steps to Wealth"</h2>
+    <ol class="text-primary" >
+
+      <% if signed_in? %>
+      <li>
+        <%= link_to '<span class="glyphicon glyphicon-ok"></span>Sign up'.html_safe, signup_path %>
+        or
+        <%= link_to '<span class="glyphicon glyphicon-ok"></span>Log in'.html_safe, signin_path %>
+      </li><br />
+      <li>
+        Create a
+        <%= link_to '<span class="glyphicon glyphicon-bullhorn "></span>FuturePost'.html_safe, root_path %>
+      </li><br />
+      <li>
+        Follow other
+        <%= link_to '<span class="glyphicon glyphicon-globe"></span>Members'.html_safe, users_path %>
+      </li><br />
+      <li>
+        Create new
+        <%= link_to '<span class="glyphicon glyphicon-cog "></span> Group'.html_safe, new_group_path %>
+      </li><br />
+      <li>
+        Add your
+        <%= link_to '<span class="glyphicon glyphicon-leaf "></span>Projects '.html_safe,  new_project_path  %>
+      </li><br />
+      <li>
+        Create
+        <%= link_to '<span class="glyphicon glyphicon-wrench "></span>Accounts'.html_safe,  accounts_path %>
+
+      </li><br />
+      <li>
+        Measure your
+        <%= link_to '<span class="glyphicon glyphicon-pencil "></span>Initial Wealth'.html_safe, new_cut_off_wealth_path %>
+      </li><br />
+      <li>
+        Book your
+        <%= link_to '<span class="glyphicon glyphicon-pencil "></span>Transactions'.html_safe, new_ledger_path %>
+        and
+        <%= link_to '<span class="glyphicon glyphicon-pencil "></span>Budgets'.html_safe, new_ledger_path %>
+      </li><br />
+      <li>
+        See
+        <%= link_to '<span class="glyphicon glyphicon-hand-left "></span>Past'.html_safe, report_path %>
+        and
+        <%= link_to '<span class="glyphicon glyphicon-hand-right "></span>Future '.html_safe, future_reports_path %>
+        Reports
+      </li><br />
+
+      <li><%= link_to '<span class="glyphicon glyphicon-gift "></span> Support Us'.html_safe, donate_path %></li><br />
+      <% else %>
+      <div class="alert alert-success">
+
+        <p>You have to Sign in to WealthOZ in order to see all "10 STEPS"</p>
+      </div>
+
+      <% end %>
+    </ol>
+
+  </ul>
+
+</footer>

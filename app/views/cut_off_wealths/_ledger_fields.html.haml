@@ -1,0 +1,17 @@
+%td
+  .form-group
+    = select_tag "cut_off_wealths[][account_id]", grouped_options_for_select(@accounts), class: 'form-control required-field' , prompt: 'Select Acc.'
+%td
+  .form-group
+    = select_tag "cut_off_wealths[][wunit]", grouped_options_for_select(@wunit), class: 'form-control required-field', prompt: 'Select W.Unit'
+%td
+  .form-group
+    = date_field_tag"cut_off_wealths[][post_date]", Date.today, class: 'form-control required-field'
+
+%td
+  .form-group
+    = text_field_tag "cut_off_wealths[][ammount]",nil, class: 'form-control required-field'
+%td
+  .form-group
+    = text_field_tag "cut_off_wealths[][text]"
+%td= link_to 'Delete', '#', class: 'delete-link btn btn-warning btn-xs'

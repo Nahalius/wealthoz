@@ -1,0 +1,14 @@
+div class="span6">
+    <%= form_for(@cut_off) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label Start Date %>
+      <%= f.date_field  %>
+
+      <%= f.label End Date %>
+      <%= f.date_field%>
+      
+      <%= f.submit "Save changes", class: "btn btn-large btn-success" %>
+ 
+    <% end %>
+</div>    

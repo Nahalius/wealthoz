@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  country: MyString
+  fx: MyString
+  usd_to: 9.99
+  to_usd: 9.99
+
+two:
+  country: MyString
+  fx: MyString
+  usd_to: 9.99
+  to_usd: 9.99

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  account_id: 1
+  group_id: 1
+  budget_date: 2014-08-20
+  ammount: 9.99
+  text: MyString
+  wunit: MyString
+
+two:
+  account_id: 1
+  group_id: 1
+  budget_date: 2014-08-20
+  ammount: 9.99
+  text: MyString
+  wunit: MyString

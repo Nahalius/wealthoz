@@ -1,0 +1,18 @@
+
+%td
+  .form-group
+    = select_tag "budgets[][account_id]", grouped_options_for_select(@accounts), class: 'budget-account-select form-control required-field' , prompt: 'Select Account'
+%td
+  .form-group
+    = select_tag "budgets[][wunit]", grouped_options_for_select(@wunit), class: 'budget-wunit-select  form-control required-field', prompt: 'Select W.Unit'
+%td
+  .form-group
+    = date_field_tag"budgets[][budget_date]", Date.today, class: ' budget-date-input form-control required-field'
+
+%td
+  .form-group
+    = text_field_tag "budgets[][ammount]",nil, class: 'budget-ammount-input form-control required-field'
+%td
+  .form-group
+    = text_field_tag "budgets[][text]"
+%td= link_to 'Delete', '#', class: 'delete-link btn btn-warning btn-xs'

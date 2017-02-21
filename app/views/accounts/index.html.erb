@@ -1,0 +1,35 @@
+<h4><strong><%= current_user.group.name %>'s Accounts</strong>
+	<%= link_to 'New Account', new_account_path, class: "btn btn-success btn-sm" %></h4>
+
+
+
+<table class="table table-striped table-hover " id="accounts" >
+  <thead>
+    <tr class="success">
+      <th>Account Name</th>
+      <th>Report</th>
+      <th>Wealth Group</th>
+      <th>Actions</th>
+      <th> </th>
+     </tr>
+  </thead>
+
+  <tbody>
+    <% @accounts.each do |account| %>
+      <tr class="" >
+        <td><%= account.name %></td>
+        <td><%= account.fs.report_class %></td>
+        <td><%= account.group.name %></td>
+        <td><%= link_to 'Edit',  edit_account_path(account),class: 'btn btn-warning btn-xs' %></td>
+        <td><%= link_to 'Show', account,class: 'btn btn-warning btn-xs' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<p>
+
+  <%#= link_to "CSV", accounts_path(format: "csv") %>
+  <%#= link_to "Excel", accounts_path(format: "xls") %>
+</p>
+
+<%= link_to 'New Account', new_account_path, class: "btn btn-success btn-sm" %>

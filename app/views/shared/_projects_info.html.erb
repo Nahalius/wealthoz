@@ -1,0 +1,9 @@
+  <div class="span8">
+    <% if @group.projects.any? %>
+      <h4>Projects <span class="badge"><%= @group.projects.count %></span></h4>
+      <ol class="projects">
+        <%= render @projects %>
+      </ol>
+      
+    <% end %>
+  </div>

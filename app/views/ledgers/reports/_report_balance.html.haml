@@ -1,0 +1,44 @@
+-if params[:end_date]
+  %h3
+    = "Balance Sheet by Wealth Units as of #{params[:end_date]}"
+-else
+  %h3 Balance Sheet by Wealth Units
+%div.row
+  %div.col-md-6
+    %p="All amounts in "+ @fx
+  %div.col-md-6
+    %div.pull-right
+      = form_tag report_balance_ledgers_path, remote: true, method: :get do
+        = text_field_tag 'end_date',nil, class: 'form-control', placeholder: 'End date'
+        = submit_tag 'submit', class: 'btn btn-primary btn-sm'
+
+
+%table{:class => "table table-striped table-hover ", :id => "bs_table"}
+  %thead
+    %th{:class => "success"} Accounts\Wealth Units
+    - @ledgers_hash_bs.each do |wunit, ledegers|
+      %td{:class => "success"}
+        %strong= wunit
+    %th{:class => "success"} Total
+  %tbody
+    - @accounts_bs.each do |account|
+      %tr{:class => ""}
+        %td
+          = account.name
+        - @ledgers_hash_bs.each do |k, v|
+          %td
+            - if v[account.id]
+              =number_with_precision( v[account.id].map(&:ammount).inject(0, &:+),precision: 2, separator: '.', delimiter: ',')
+        %td
+          - if @account_hash_bs[account.id]
+            =number_with_precision( @account_hash_bs[account.id].map(&:ammount).inject(0, &:+),precision: 2, separator: '.', delimiter: ',')
+
+    %tr{:class => "info"}
+      %td
+        %strong Accumulated Wealth
+      - @ledgers_hash_bs.each do |k, v|
+        %td
+          %strong=number_with_precision( v.values.flatten.map(&:ammount).inject(0, &:+),precision: 2, separator: '.', delimiter: ',')
+      %td
+        %strong=number_with_precision( @account_hash_bs.values.flatten.map(&:ammount).inject(0, &:+),precision: 2, separator: '.', delimiter: ',')
+= render 'ledgers/chart_bs'

@@ -1,0 +1,33 @@
+<h4><%=current_user.group.name%>'s Transactions</h4>
+
+<table class="table table-striped table-hover " id="transactions">
+  <thead>
+      <tr>
+      <th>Account</th>
+      <th><%= render 'shared/help_wunits'%></th>
+      <th>Post date</th>
+      <th>Amount</th>
+      <th></th>
+      <th>Actions</th>
+      <th>Text</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ledgers.each do |ledger| %>
+      <tr class="">
+        <td><%= ledger.account.name %></td>
+        <td><%= ledger.wunit %></td>
+        <td><%= ledger.post_date %></td>
+        <td><%= ledger.ammount %></td>
+        <td><%= link_to 'Edit', edit_ledger_path(ledger),class: 'btn btn-warning btn-xs' %></td>
+        <td><%= link_to 'Delete', ledger, method: :delete, data: { confirm: 'Delete this Transaction?'},class: 'btn btn-warning btn-xs' %></td>
+        <td><%= ledger.text %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Transaction', new_ledger_path , class: "btn btn-sm btn-success"%>

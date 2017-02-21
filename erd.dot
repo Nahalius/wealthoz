@@ -1,0 +1,137 @@
+digraph WealthOZ201 {
+rankdir = "LR";
+ranksep = "0.5";
+nodesep = "0.4";
+pad = "0.4,0.4";
+margin = "0,0";
+concentrate = "true";
+labelloc = "t";
+fontsize = "13";
+fontname = "Arial Bold";
+node[ shape  =  "Mrecord" , fontsize  =  "10" , fontname  =  "Arial" , margin  =  "0.07,0.05" , penwidth  =  "1.0"];
+edge[ fontname  =  "Arial" , fontsize  =  "7" , dir  =  "both" , arrowsize  =  "0.9" , penwidth  =  "1.0" , labelangle  =  "32" , labeldistance  =  "1.8"];
+label = "WealthOZ201 domain model\n\n";
+m_Account [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Account</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="default">default <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="user_id">user_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+</table>
+>];
+m_Budget [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Budget</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="ammount">ammount <font face="Arial Italic" color="grey60">decimal ∗</font></td></tr>
+  <tr><td align="left" width="130" port="budget_date">budget_date <font face="Arial Italic" color="grey60">date</font></td></tr>
+  <tr><td align="left" width="130" port="text">text <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="wunit">wunit <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+m_Fs [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Fs</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="report">report <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="report_class">report_class <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+m_Fx [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Fx</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="country">country <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="fx">fx <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="to_usd">to_usd <font face="Arial Italic" color="grey60">decimal</font></td></tr>
+  <tr><td align="left" width="130" port="usd_to">usd_to <font face="Arial Italic" color="grey60">decimal</font></td></tr>
+</table>
+>];
+m_Group [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Group</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+m_GroupUser [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">GroupUser</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="status">status <font face="Arial Italic" color="grey60">integer</font></td></tr>
+</table>
+>];
+m_Ledger [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Ledger</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="ammount">ammount <font face="Arial Italic" color="grey60">decimal ∗</font></td></tr>
+  <tr><td align="left" width="130" port="post_date">post_date <font face="Arial Italic" color="grey60">date ∗</font></td></tr>
+  <tr><td align="left" width="130" port="quantity">quantity <font face="Arial Italic" color="grey60">decimal</font></td></tr>
+  <tr><td align="left" width="130" port="text">text <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="wunit">wunit <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+m_Micropost [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Micropost</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="content">content <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="post_date">post_date <font face="Arial Italic" color="grey60">date ∗</font></td></tr>
+  <tr><td align="left" width="130" port="topic">topic <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+m_Project [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Project</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="percent_owned">percent_owned <font face="Arial Italic" color="grey60">integer</font></td></tr>
+</table>
+>];
+m_Relationship [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Relationship</font></td></tr>
+</table>
+>];
+m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">User</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="admin">admin <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="email">email <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="group_name">group_name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="password_digest">password_digest <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="remember_token">remember_token <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+  m_Group -> m_Account [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Fs -> m_Account [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Account -> m_Ledger [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Account -> m_Budget [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Group -> m_Budget [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Group -> m_Fs [arrowhead = "none", arrowtail = "none", weight = "2"];
+  m_Fx -> m_Group [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Group -> m_GroupUser [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Group -> m_User [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "1", constraint = "false"];
+  m_Group -> m_Project [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Group -> m_Ledger [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_User -> m_GroupUser [arrowhead = "none", arrowtail = "none", weight = "2"];
+  m_User -> m_Micropost [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_User -> m_Relationship [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_User -> m_Relationship [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_User -> m_Group [style = "dotted", arrowhead = "none", arrowtail = "none", weight = "1", constraint = "false"];
+  m_User -> m_User [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "1", constraint = "false"];
+  m_User -> m_User [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "1", constraint = "false"];
+}

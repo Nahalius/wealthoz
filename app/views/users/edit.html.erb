@@ -1,0 +1,50 @@
+<% provide(:title, "Edit user") %>
+<h4>Update your profile</h4>
+
+<form class="form-horizontal" role="form">
+  <div class="form-group">
+  <div class="col-md-4">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <br>
+      <%= f.text_field :name %>
+      <%= f.label :name %>
+      <br>
+      <%= f.text_field :email %>
+      <%= f.label :email %>
+      <br>
+      <%= f.password_field :password %>
+      <%= f.label :password %>
+      <br>
+      <%= f.password_field :password_confirmation %>
+      <%= f.label :password_confirmation, "Confirm Password" %>
+      <br>
+
+      <%= f.submit "Save changes", class: "btn btn-sm btn-success" %>
+    <section>
+      <br>
+      <% end %>
+      <%= gravatar_for @user %>
+      <a href="http://gravatar.com/emails">change</a>
+    </section>
+  </div>
+      <section>
+        <div class="col-md-5">
+      	<h4>Group Settings</h4>
+      <p>
+  		  <%= link_to "Join existing Wealth Group", edit_group_user_path , class: "btn btn-sm btn-warning" %>
+      </p>
+      <h6 class="text-warning"> <strong>or</strong></h6>
+      <p>
+    		<%= link_to "Create New Wealth Group", new_group_path , class: "btn  btn-sm btn-warning" %>
+      </p>
+  		<h6 class="text-warning">You can have only <strong>one Wealth Group</strong> !!!</h6>
+  	  <p>
+    		<%= link_to "Requests for joining your Group", group_group_users_path , class: "btn  btn-sm btn-warning" %>
+      </p>
+
+  	</section>
+  </div>
+	<br />
+</div>
+</div>

@@ -1,0 +1,36 @@
+
+%h3= "Future Balance Sheet as of #{params[:end_date]}"
+%p="All amounts in "+@fx
+.pull-right
+  = form_tag future_balance_future_reports_path, remote: true, method: :get do
+    = text_field_tag 'end_date', nil, class: 'form-control', placeholder: 'End date', data: { behaviour: 'datepicker' }
+    = submit_tag 'submit', class: 'btn btn-primary btn-sm'
+
+%table{:class => "table table-striped table-hover ", :id => "bs_future"}
+  %thead
+    %th{:class => "success"} Accounts\Wealth Units
+    - @all_transactions_hash_bs.each do |wunit, ledegers|
+      %td{:class => "success"}
+        %strong= wunit
+    %th{:class => "success"} Total
+  %tbody
+    - @accounts_bs.each do |account|
+      %tr{:class => ""}
+        %td{:class => ""}
+          = account.name
+        - @all_transactions_hash_bs.each do |k, v|
+          %td{:class => ""}
+            - if v[account.id]
+              =number_with_precision( v[account.id].map(&:ammount).inject(0, &:+),precision: 2, separator: '.', delimiter: ',')
+        %td{:class => ""}
+          - if @account_hash_bs[account.id]
+            =number_with_precision( @account_hash_bs[account.id].map(&:ammount).inject(0, &:+),precision: 2, separator: '.', delimiter: ',')
+    %tr{:class => "info"}
+      %td
+        %strong Accumulated Wealth
+      - @all_transactions_hash_bs.each do |k, v|
+        %td
+          %strong=number_with_precision( v.values.flatten.map(&:ammount).inject(0, &:+),precision: 2, separator: '.', delimiter: ',')
+      %td
+        %strong=number_with_precision( @account_hash_bs.values.flatten.map(&:ammount).inject(0, &:+),precision: 2, separator: '.', delimiter: ',')
+= high_chart("my_id5", @chart_future_balance)

@@ -1,0 +1,17 @@
+
+<p>
+  <strong>Name:</strong>
+  <%= @account.name %>
+</p>
+
+<p>
+  <strong>Wealth Group:</strong>
+  <%= @account.group.name  %>
+</p>
+
+<p>
+  <strong>Report:</strong>
+  <%= @account.fs.report_class %>
+</p>
+
+<%= link_to 'Back', accounts_path %>
